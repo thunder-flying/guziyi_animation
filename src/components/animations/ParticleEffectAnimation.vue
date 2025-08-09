@@ -20,7 +20,7 @@
     </div>
 
     <!-- UI Controls -->
-    <div class="absolute top-8 left-8 z-40">
+    <div class="absolute top-8 left-8 z-40 transform-none">
       <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-6 text-white">
         <h3 class="text-lg font-bold mb-4">粒子控制面板</h3>
         
@@ -91,7 +91,7 @@
     </div>
 
     <!-- Info Panel -->
-    <div class="absolute top-8 right-8 z-40">
+    <div class="absolute top-8 right-8 z-40 transform-none">
       <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-6 text-white max-w-xs">
         <h3 class="text-lg font-bold mb-4">使用说明</h3>
         <ul class="text-sm space-y-2 text-gray-300">
@@ -536,6 +536,7 @@ function resetParticles() {
 }
 
 function animateDecor() {
+  // 只给背景装饰元素添加动画，控制面板保持静止
   decorRefs.value.forEach((decor, index) => {
     if (decor) {
       gsap.to(decor, {
@@ -599,6 +600,21 @@ canvas {
   cursor: none !important;
 }
 
+/* 控制面板和信息面板保持静止 */
+.transform-none {
+  transform: none !important;
+  animation: none !important;
+}
+
+/* 只有背景装饰元素有动画 */
+.absolute:not(.z-40):nth-child(odd) {
+  animation: float 4s ease-in-out infinite;
+}
+
+.absolute:not(.z-40):nth-child(even) {
+  animation: float 6s ease-in-out infinite reverse;
+}
+
 /* Decorative elements animation */
 @keyframes float {
   0%, 100% {
@@ -609,13 +625,5 @@ canvas {
     transform: translateY(-20px) scale(1.2);
     opacity: 0.6;
   }
-}
-
-.absolute:nth-child(odd) {
-  animation: float 4s ease-in-out infinite;
-}
-
-.absolute:nth-child(even) {
-  animation: float 6s ease-in-out infinite reverse;
 }
 </style>

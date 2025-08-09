@@ -37,12 +37,6 @@ const routes: RouteRecordRaw[] = [
     name: 'TimelineAnimations',
     component: () => import('@/views/TimelineAnimationsView.vue'),
     meta: { title: '时间轴动画' }
-  },
-  {
-    path: '/animation-components',
-    name: 'AnimationComponents',
-    component: () => import('@/views/AnimationComponentsView.vue'),
-    meta: { title: '动画组件展示' }
   }
 ]
 

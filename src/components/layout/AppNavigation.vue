@@ -85,8 +85,7 @@ const navigationItems = [
   { name: '几何动画', path: '/geometry-animations' },
   { name: '滚动动画', path: '/scroll-animations' },
   { name: '交互动画', path: '/interactive-animations' },
-  { name: '时间轴动画', path: '/timeline-animations' },
-  { name: '组件展示', path: '/animation-components' }
+  { name: '时间轴动画', path: '/timeline-animations' }
 ]
 
 function toggleMobileMenu() {
