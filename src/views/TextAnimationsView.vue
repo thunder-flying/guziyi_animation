@@ -7,7 +7,7 @@
           文字动画效果
         </h1>
         <p ref="pageSubtitle" class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
-          探索各种令人惊艳的GSAP文字动画技术
+          探索各种令人惊艳的文字动画技术
         </p>
       </div>
     </section>
@@ -47,7 +47,7 @@
           <div class="bg-gray-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto mb-8">
             <div class="split-text-container min-h-[200px] flex items-center justify-center">
               <h3 ref="splitText" class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-                GSAP 让动画变得简单
+                动画展示厅 让动画变得简单
               </h3>
             </div>
             <div class="flex flex-wrap gap-4 justify-center">
@@ -196,13 +196,13 @@ const glitchText = ref<HTMLElement>()
 
 // Data
 const typewriterTexts = [
-  "欢迎来到 GSAP 世界",
+  "欢迎来到 动画展示厅",
   "创造令人惊艳的动画",
   "让你的网站生动起来",
   "探索无限可能性"
 ]
 
-const morphingTexts = ["HELLO", "WORLD", "GSAP", "AMAZING", "CREATIVE"]
+const morphingTexts = ["HELLO", "WORLD", "动画", "AMAZING", "CREATIVE"]
 let currentMorphIndex = 0
 
 onMounted(async () => {

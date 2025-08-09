@@ -5,7 +5,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold mb-6">动画组件展示</h1>
         <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-8">
-          5个核心GSAP动画组件的完整展示
+          5个核心动画组件的完整展示
         </p>
         
         <!-- Component Navigation -->
@@ -31,7 +31,7 @@
         </div>
       </div>
       <SplitRevealAnimation 
-        title-text="GSAP 开场动画"
+        title-text="动画展示厅 开场动画"
         subtitle-text="文字与图片的分块揭示效果"
         :auto-play="false"
       />
@@ -64,7 +64,7 @@
       <div class="component-header bg-gradient-to-r from-red-600 to-pink-600 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 class="text-4xl font-bold mb-4">4. 粒子滴滴特效</h2>
-          <p class="text-xl opacity-90">鼠标点击页面时爆发粒子动画 (canvas+GSAP)</p>
+          <p class="text-xl opacity-90">鼠标点击页面时爆发粒子动画 (canvas+动画引擎)</p>
         </div>
       </div>
       <ParticleEffectAnimation 
@@ -89,7 +89,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl md:text-5xl font-bold mb-8">组件化动画开发</h2>
         <p class="text-xl md:text-2xl opacity-90 max-w-4xl mx-auto mb-12">
-          这些组件展示了如何将复杂的GSAP动画效果模块化，让动画可以在不同页面中复用。
+          这些组件展示了如何将复杂的动画效果模块化，让动画可以在不同页面中复用。
         </p>
         
         <!-- Features Grid -->
@@ -97,7 +97,7 @@
           <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
             <div class="text-4xl mb-4">⚡</div>
             <h3 class="text-xl font-bold mb-3">高性能</h3>
-            <p class="text-gray-300">使用GSAP确保60fps流畅动画，硬件加速优化</p>
+            <p class="text-gray-300">使用先进动画引擎确保60fps流畅动画，硬件加速优化</p>
           </div>
           
           <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
@@ -127,7 +127,7 @@
           <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6">
             <div class="text-4xl mb-4">💡</div>
             <h3 class="text-xl font-bold mb-3">最佳实践</h3>
-            <p class="text-gray-300">遵循GSAP最佳实践，性能与美观并重</p>
+            <p class="text-gray-300">遵循动画最佳实践，性能与美观并重</p>
           </div>
         </div>
 
@@ -137,7 +137,7 @@
           <div class="flex flex-wrap justify-center gap-4">
             <span class="bg-blue-600 text-white px-4 py-2 rounded-lg">Vue 3</span>
             <span class="bg-blue-600 text-white px-4 py-2 rounded-lg">TypeScript</span>
-            <span class="bg-green-600 text-white px-4 py-2 rounded-lg">GSAP</span>
+            <span class="bg-green-600 text-white px-4 py-2 rounded-lg">动画引擎</span>
             <span class="bg-purple-600 text-white px-4 py-2 rounded-lg">ScrollTrigger</span>
             <span class="bg-orange-600 text-white px-4 py-2 rounded-lg">Canvas</span>
             <span class="bg-pink-600 text-white px-4 py-2 rounded-lg">CSS 3D</span>

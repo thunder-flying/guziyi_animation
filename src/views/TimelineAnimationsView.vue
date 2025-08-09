@@ -256,7 +256,7 @@ const complexParticleRefs = ref<HTMLElement[]>([])
 const complexTargetRefs = ref<HTMLElement[]>([])
 
 // Data
-const staggerTextContent = "GSAP 时间轴动画"
+const staggerTextContent = "动画展示厅 时间轴动画"
 const currentSpeed = ref(1)
 let mainTimeline: gsap.core.Timeline
 

@@ -1,6 +1,6 @@
-# GSAP 酷炫动画展示网站
+# 动画展示厅 - 酷炫动画展示网站
 
-这是一个使用 Vue 3 + TypeScript + GSAP 构建的动画展示网站，展示了各种令人惊艳的 GSAP 动画效果。
+这是一个使用 Vue 3 + TypeScript + 动画引擎 构建的动画展示网站，展示了各种令人惊艳的动画效果。
 
 ## 🎨 功能特色
 
@@ -48,7 +48,7 @@
 
 - **Vue 3** - 渐进式JavaScript框架
 - **TypeScript** - 类型安全的JavaScript
-- **GSAP** - 高性能动画库
+- **动画引擎** - 高性能动画库
 - **Tailwind CSS** - 实用优先的CSS框架
 - **Element Plus** - Vue 3组件库
 - **Vite** - 下一代前端构建工具
@@ -70,7 +70,7 @@ npm run dev
 npm run build
 ```
 
-## 🎯 GSAP动画最佳实践
+## 🎯 动画最佳实践
 
 ### 性能优化
 - 使用 `transform` 和 `opacity` 属性进行动画
@@ -84,13 +84,15 @@ npm run build
 - **交错动画** - 使用 `stagger` 创造层次感
 - **响应式** - 考虑移动设备的性能限制
 
-### 常用GSAP技巧
+### 常用动画技巧
 ```javascript
 // 基础动画
-gsap.to(".element", { x: 100, duration: 1 })
+// 基本动画
+animationEngine.to(".element", { x: 100, duration: 1 })
 
 // 时间轴控制
-const tl = gsap.timeline()
+// 时间轴动画
+const tl = animationEngine.timeline()
 tl.to(".element1", { x: 100 })
   .to(".element2", { y: 50 }, "-=0.5")
 
@@ -98,11 +100,11 @@ tl.to(".element1", { x: 100 })
 ScrollTrigger.create({
   trigger: ".element",
   start: "top 80%",
-  animation: gsap.from(".element", { opacity: 0, y: 50 })
+  animation: animationEngine.from(".element", { opacity: 0, y: 50 })
 })
 
 // 交错动画
-gsap.fromTo(".items", 
+animationEngine.fromTo(".items", 
   { opacity: 0, y: 30 },
   { opacity: 1, y: 0, stagger: 0.1 }
 )
@@ -126,15 +128,15 @@ gsap.fromTo(".items",
 
 你可以轻松添加自己的动画效果：
 
-1. 在对应的组件中导入GSAP
+1. 在对应的组件中导入动画引擎
 2. 使用Vue的生命周期钩子初始化动画
 3. 利用ref获取DOM元素
-4. 创建GSAP动画实例
+4. 创建动画实例
 
 ## 📚 学习资源
 
-- [GSAP官方文档](https://greensock.com/docs/)
-- [GSAP学习指南](https://greensock.com/learning/)
+- [动画引擎官方文档](https://greensock.com/docs/)
+- [动画引擎学习指南](https://greensock.com/learning/)
 - [Vue 3官方文档](https://vuejs.org/)
 - [TypeScript文档](https://www.typescriptlang.org/)
 

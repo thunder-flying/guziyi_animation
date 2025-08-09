@@ -198,7 +198,7 @@
             <div class="space-y-2">
               <h4 class="font-bold text-blue-400">3D变换</h4>
               <p class="text-gray-300 text-sm">
-                使用CSS 3D transforms和GSAP实现流畅的立体翻转效果
+                使用CSS 3D transforms和动画引擎实现流畅的立体翻转效果
               </p>
             </div>
             <div class="space-y-2">
@@ -317,7 +317,7 @@ const cards = ref<Card[]>([
     title: '时间轴动画',
     subtitle: '序列控制',
     backTitle: '精确的时序控制',
-    description: 'GSAP Timeline实现的复杂时间轴动画，精确控制动画的播放顺序。',
+    description: 'Timeline实现的复杂时间轴动画，精确控制动画的播放顺序。',
     icon: '⏰',
     frontGradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     backGradient: 'linear-gradient(135deg, #fee140 0%, #fa709a 100%)',

@@ -45,10 +45,10 @@
         
         <!-- Logo SVG -->
         <div class="svg-container">
-          <h3 ref="logoTitle" class="text-2xl font-bold text-white mb-6">GSAP Logo</h3>
+          <h3 ref="logoTitle" class="text-2xl font-bold text-white mb-6">动画展示厅 Logo</h3>
           <div class="bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
             <svg ref="logoSvg" width="200" height="200" viewBox="0 0 200 200" class="mx-auto">
-              <!-- GSAP Text Logo -->
+              <!-- 动画展示厅 Text Logo -->
               <path 
                 ref="logoPath1"
                 d="M20,50 Q20,20 50,20 L80,20 Q110,20 110,50 Q110,80 80,80 L50,80 Q20,80 20,50 M20,50 L80,50"
@@ -191,7 +191,7 @@
             <div class="space-y-2">
               <h4 class="font-bold text-purple-400">动画时序</h4>
               <p class="text-gray-300 text-sm">
-                GSAP Timeline 精确控制多条路径的绘制顺序和时间
+                Timeline 精确控制多条路径的绘制顺序和时间
               </p>
             </div>
             <div class="space-y-2">

@@ -117,7 +117,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  titleText: 'GSAP 炫酷动画',
+  titleText: '动画展示厅 炫酷动画',
   subtitleText: '探索令人惊艳的动画世界',
   autoPlay: true
 })

@@ -18,7 +18,7 @@
 
       <div class="z-10 px-4 text-center text-white">
         <h1 ref="heroTitle" class="mb-6 text-6xl font-bold md:text-8xl text-glow">
-          <span v-for="(char, index) in 'GSAP'" :key="index" :ref="el => setTitleCharRef(el, index)" class="inline-block">
+          <span v-for="(char, index) in '动画展示厅'" :key="index" :ref="el => setTitleCharRef(el, index)" class="inline-block">
             {{ char }}
           </span>
         </h1>
@@ -56,7 +56,7 @@
             动画展示
           </h2>
           <p ref="showcaseSubtitle" class="mx-auto max-w-3xl text-xl text-gray-600">
-            体验各种酷炫的GSAP动画效果，从文字动画到几何变换，从滚动触发到交互响应
+            体验各种酷炫的动画效果，从文字动画到几何变换，从滚动触发到交互响应
           </p>
         </div>
 
@@ -80,7 +80,7 @@
       <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
           <h2 ref="featuresTitle" class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            为什么选择 GSAP？
+            为什么选择动画展示厅？
           </h2>
         </div>
 
@@ -178,7 +178,7 @@ const animationCards = [
 const features = [
   {
     title: '高性能',
-    description: 'GSAP使用最优化的算法，确保动画流畅运行，即使在低端设备上也能保持60fps',
+    description: '动画展示厅使用最优化的算法，确保动画流畅运行，即使在低端设备上也能保持60fps',
     icon: '⚡',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
   },
@@ -230,6 +230,7 @@ function getRandomShape() {
 }
 
 function scrollToShowcase() {
+  console.log('showcaseSection',showcaseSection)
   if (!showcaseSection.value) return
   
   // 添加按钮点击动画效果
