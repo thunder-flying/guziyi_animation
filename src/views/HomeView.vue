@@ -230,21 +230,11 @@ function getRandomShape() {
 }
 
 function scrollToShowcase() {
-  console.log('showcaseSection',showcaseSection)
   if (!showcaseSection.value) return
-  
-  // 添加按钮点击动画效果
-  gsap.to(heroButton.value, {
-    scale: 0.95,
-    duration: 0.1,
-    yoyo: true,
-    repeat: 1,
-    ease: "power2.inOut"
-  })
   
   // 平滑滚动到展示区域
   gsap.to(window, {
-    duration: 1.5,
+    duration: 0.5,
     scrollTo: {
       y: showcaseSection.value,
       offsetY: 80 // 导航栏高度偏移
@@ -324,17 +314,17 @@ function initAnimations() {
   .fromTo(heroSubtitle.value,
     { y: 50, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
-    "-=0.3"
+    "-=0.1"
   )
   .fromTo(heroButton.value,
     { scale: 0, opacity: 0 },
     { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.7)" },
-    "-=0.2"
+    // "+=0.1"
   )
   .fromTo(scrollIndicator.value,
     { y: 20, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-    "-=0.1"
+    "+=0.4"
   )
 
   // 背景图形动画
