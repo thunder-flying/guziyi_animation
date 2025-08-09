@@ -112,7 +112,7 @@ function onMouseEnter() {
   
   // 背景渐变显示
   tl.to(bgGradient.value, {
-    opacity: 0.1,
+    opacity: 0.85,
     duration: 0.3,
     ease: "power2.out"
   })

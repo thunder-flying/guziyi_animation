@@ -1,12 +1,12 @@
 <template>
-  <div class="text-animations-view pt-16">
+  <div class="pt-16 text-animations-view">
     <!-- Page Header -->
-    <section class="py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 ref="pageTitle" class="text-5xl md:text-6xl font-bold mb-6">
+    <section class="py-20 text-white bg-gradient-to-r from-purple-600 to-blue-600">
+      <div class="px-4 mx-auto max-w-7xl text-center sm:px-6 lg:px-8">
+        <h1 ref="pageTitle" class="mb-6 text-5xl font-bold md:text-6xl">
           文字动画效果
         </h1>
-        <p ref="pageSubtitle" class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+        <p ref="pageSubtitle" class="mx-auto max-w-3xl text-xl opacity-90 md:text-2xl">
           探索各种令人惊艳的文字动画技术
         </p>
       </div>
@@ -14,21 +14,21 @@
 
     <!-- Typewriter Effect -->
     <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">打字机效果</h2>
-          <p class="text-gray-600 mb-8">经典的打字机动画，一个字符接一个字符地显示</p>
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">打字机效果</h2>
+          <p class="mb-8 text-gray-600">经典的打字机动画，一个字符接一个字符地显示</p>
           
-          <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+          <div class="p-8 mx-auto max-w-4xl bg-white rounded-2xl shadow-lg">
             <div class="typewriter-container min-h-[120px] flex items-center justify-center">
-              <div class="text-2xl md:text-3xl font-mono text-gray-800">
+              <div class="font-mono text-2xl text-gray-800 md:text-3xl">
                 <span ref="typewriterText" class="typewriter-text"></span>
                 <span ref="typewriterCursor" class="typewriter-cursor">|</span>
               </div>
             </div>
             <button 
               @click="startTypewriter"
-              class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              class="px-6 py-3 mt-6 text-white bg-blue-600 rounded-lg transition-colors hover:bg-blue-700"
             >
               重新播放
             </button>
@@ -39,39 +39,39 @@
 
     <!-- Text Split Animation -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">文字分割动画</h2>
-          <p class="text-gray-600 mb-8">将文字拆分为单个字符，创造出惊艳的进入效果</p>
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">文字分割动画</h2>
+          <p class="mb-8 text-gray-600">将文字拆分为单个字符，创造出惊艳的进入效果</p>
           
-          <div class="bg-gray-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto mb-8">
+          <div class="p-8 mx-auto mb-8 max-w-4xl bg-gray-50 rounded-2xl shadow-lg">
             <div class="split-text-container min-h-[200px] flex items-center justify-center">
-              <h3 ref="splitText" class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+              <h3 ref="splitText" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 md:text-5xl">
                 动画展示厅 让动画变得简单
               </h3>
             </div>
             <div class="flex flex-wrap gap-4 justify-center">
               <button 
                 @click="animateSplitText('fadeIn')"
-                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+                class="px-4 py-2 text-white bg-purple-600 rounded-lg transition-colors hover:bg-purple-700"
               >
                 淡入效果
               </button>
               <button 
                 @click="animateSplitText('slideUp')"
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                class="px-4 py-2 text-white bg-blue-600 rounded-lg transition-colors hover:bg-blue-700"
               >
                 上滑效果
               </button>
               <button 
                 @click="animateSplitText('rotate')"
-                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                class="px-4 py-2 text-white bg-green-600 rounded-lg transition-colors hover:bg-green-700"
               >
                 旋转效果
               </button>
               <button 
                 @click="animateSplitText('bounce')"
-                class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+                class="px-4 py-2 text-white bg-orange-600 rounded-lg transition-colors hover:bg-orange-700"
               >
                 弹跳效果
               </button>
@@ -82,15 +82,15 @@
     </section>
 
     <!-- 3D Text Animation -->
-    <section class="py-20 bg-gray-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">3D文字效果</h2>
-          <p class="text-gray-300 mb-8">利用CSS 3D变换创造立体文字动画</p>
+    <section class="py-20 text-white bg-gray-900">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold md:text-4xl">3D文字效果</h2>
+          <p class="mb-8 text-gray-300">利用CSS 3D变换创造立体文字动画</p>
           
           <div class="perspective-container" style="perspective: 1000px;">
             <div ref="text3dContainer" class="text-3d-container min-h-[200px] flex items-center justify-center">
-              <h3 ref="text3d" class="text-6xl md:text-8xl font-bold text-white transform-gpu">
+              <h3 ref="text3d" class="text-6xl font-bold text-white transform-gpu md:text-8xl">
                 3D TEXT
               </h3>
             </div>
@@ -99,25 +99,25 @@
           <div class="flex flex-wrap gap-4 justify-center mt-8">
             <button 
               @click="animate3DText('rotateX')"
-              class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+              class="px-4 py-2 text-white bg-red-600 rounded-lg transition-colors hover:bg-red-700"
             >
               X轴旋转
             </button>
             <button 
               @click="animate3DText('rotateY')"
-              class="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors"
+              class="px-4 py-2 text-white bg-yellow-600 rounded-lg transition-colors hover:bg-yellow-700"
             >
               Y轴旋转
             </button>
             <button 
               @click="animate3DText('flip')"
-              class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors"
+              class="px-4 py-2 text-white bg-pink-600 rounded-lg transition-colors hover:bg-pink-700"
             >
               翻转效果
             </button>
             <button 
               @click="animate3DText('wave')"
-              class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition-colors"
+              class="px-4 py-2 text-white bg-cyan-600 rounded-lg transition-colors hover:bg-cyan-700"
             >
               波浪效果
             </button>
@@ -128,20 +128,20 @@
 
     <!-- Text Morphing -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">文字变形动画</h2>
-          <p class="text-gray-600 mb-8">文字之间的平滑过渡和变形效果</p>
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">文字变形动画</h2>
+          <p class="mb-8 text-gray-600">文字之间的平滑过渡和变形效果</p>
           
-          <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+          <div class="p-8 mx-auto max-w-4xl bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl shadow-lg">
             <div class="morph-container min-h-[150px] flex items-center justify-center">
-              <h3 ref="morphText" class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <h3 ref="morphText" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 md:text-5xl">
                 HELLO
               </h3>
             </div>
             <button 
               @click="startMorphing"
-              class="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+              class="px-6 py-3 mt-6 text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg transition-all hover:from-blue-700 hover:to-purple-700"
             >
               开始变形
             </button>
@@ -151,21 +151,21 @@
     </section>
 
     <!-- Glitch Effect -->
-    <section class="py-20 bg-black text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">故障艺术效果</h2>
-          <p class="text-gray-300 mb-8">赛博朋克风格的文字故障动画</p>
+    <section class="py-20 text-white bg-black">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold md:text-4xl">故障艺术效果</h2>
+          <p class="mb-8 text-gray-300">赛博朋克风格的文字故障动画</p>
           
           <div class="glitch-container min-h-[200px] flex items-center justify-center">
-            <div ref="glitchText" class="glitch-text text-5xl md:text-7xl font-bold" data-text="GLITCH">
+            <div ref="glitchText" class="text-5xl font-bold glitch-text md:text-7xl" data-text="GLITCH">
               GLITCH
             </div>
           </div>
           
           <button 
             @click="triggerGlitch"
-            class="mt-8 bg-green-500 text-black px-6 py-3 rounded-lg hover:bg-green-400 transition-colors font-bold"
+            class="px-6 py-3 mt-8 font-bold text-black bg-green-500 rounded-lg transition-colors hover:bg-green-400"
           >
             触发故障
           </button>
@@ -214,24 +214,30 @@ onMounted(async () => {
 
 function initPageAnimations() {
   // 页面标题动画
-  gsap.fromTo(pageTitle.value,
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
-  )
+  if (pageTitle.value) {
+    gsap.fromTo(pageTitle.value,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
+    )
+  }
   
-  gsap.fromTo(pageSubtitle.value,
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.3 }
-  )
+  if (pageSubtitle.value) {
+    gsap.fromTo(pageSubtitle.value,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.3 }
+    )
+  }
 
   // 光标闪烁动画
-  gsap.to(typewriterCursor.value, {
-    opacity: 0,
-    duration: 0.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "power2.inOut"
-  })
+  if (typewriterCursor.value) {
+    gsap.to(typewriterCursor.value, {
+      opacity: 0,
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "power2.inOut"
+    })
+  }
 }
 
 function startTypewriter() {
@@ -248,79 +254,195 @@ function startTypewriter() {
   }
 }
 
-function animateSplitText(type: string) {
-  if (!splitText.value) return
+function animateSplitText(type: 'fadeIn' | 'slideUp' | 'rotate' | 'bounce') {
+  const textEl = splitText.value
+  if (!textEl) return
+
+  // 停止当前运行的所有动画
+  gsap.killTweensOf(textEl)
+  gsap.killTweensOf(textEl.children)
+
+  // 获取原始文本内容
+  const originalText = "动画展示厅 让动画变得简单"
   
-  const text = splitText.value.textContent || ""
-  splitText.value.innerHTML = ""
+  // 清空并重新创建字符元素
+  textEl.innerHTML = ''
   
-  // 创建字符span
-  for (let char of text) {
+  // 创建字符 span 元素
+  const characters = originalText.split('').map(char => {
     const span = document.createElement('span')
     span.textContent = char === ' ' ? '\u00A0' : char
     span.style.display = 'inline-block'
-    splitText.value.appendChild(span)
-  }
-  
-  const chars = splitText.value.querySelectorAll('span')
-  
-  // 重置状态
-  gsap.set(chars, { opacity: 0, y: 50, rotationX: -90, scale: 0.5 })
-  
-  let animation: gsap.core.Timeline
-  
+    span.style.position = 'relative'
+    textEl.appendChild(span)
+    return span
+  })
+
+  // 根据动画类型执行不同的动画逻辑
   switch (type) {
     case 'fadeIn':
-      animation = gsap.timeline()
-        .to(chars, {
-          opacity: 1,
-          duration: 0.05,
-          stagger: 0.05,
-          ease: "power2.out"
-        })
-      break
+      // 淡入效果：从透明到不透明，同时带有轻微的缩放
+      gsap.set(characters, { 
+        opacity: 0, 
+        scale: 0.5,
+        filter: 'blur(10px)',
+        color: '#9333ea' // 初始紫色
+      })
       
+      gsap.to(characters, {
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 0.8,
+        stagger: {
+          amount: 1.2,
+          from: "center"
+        },
+        ease: "power3.out",
+        onComplete: () => {
+          // 动画完成后添加彩虹色彩效果
+          gsap.to(characters, {
+            color: '#ec4899', // 粉色
+            duration: 0.5,
+            stagger: 0.05,
+            yoyo: true,
+            repeat: 1,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.to(characters, {
+                color: '#8b5cf6', // 最终紫色
+                duration: 0.3
+              })
+            }
+          })
+        }
+      })
+      break
+
     case 'slideUp':
-      animation = gsap.timeline()
-        .to(chars, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "back.out(1.7)"
-        })
-      break
+      // 上滑效果：从下方滑入
+      gsap.set(characters, { 
+        y: 80, 
+        opacity: 0,
+        rotationX: 45,
+        color: '#2563eb' // 初始蓝色
+      })
       
+      gsap.to(characters, {
+        y: 0,
+        opacity: 1,
+        rotationX: 0,
+        duration: 1,
+        stagger: {
+          amount: 0.8,
+          from: "start"
+        },
+        ease: "power2.out",
+        onComplete: () => {
+          // 动画完成后添加渐变色彩效果
+          gsap.to(characters, {
+            color: '#06b6d4', // 青色
+            duration: 0.6,
+            stagger: 0.04,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.to(characters, {
+                color: '#3b82f6', // 最终蓝色
+                duration: 0.4
+              })
+            }
+          })
+        }
+      })
+      break
+
     case 'rotate':
-      animation = gsap.timeline()
-        .to(chars, {
-          opacity: 1,
-          rotationX: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out"
-        })
-      break
+      // 旋转效果：3D旋转进入
+      gsap.set(characters, { 
+        rotationY: -180, 
+        opacity: 0,
+        transformOrigin: "50% 50%",
+        z: -100,
+        color: '#059669' // 初始绿色
+      })
       
+      gsap.to(characters, {
+        rotationY: 0,
+        opacity: 1,
+        z: 0,
+        duration: 1.2,
+        stagger: {
+          amount: 1,
+          from: "random"
+        },
+        ease: "power3.out",
+        onComplete: () => {
+          // 动画完成后添加多彩旋转效果
+          const colors = ['#10b981', '#34d399', '#6ee7b7', '#059669']
+          characters.forEach((char, index) => {
+            gsap.to(char, {
+              color: colors[index % colors.length],
+              duration: 0.4,
+              delay: index * 0.03,
+              ease: "power2.out"
+            })
+          })
+        }
+      })
+      break
+
     case 'bounce':
-      animation = gsap.timeline()
-        .to(chars, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.05,
-          ease: "bounce.out"
-        })
-      break
+      // 弹跳效果：从上方弹跳进入
+      gsap.set(characters, { 
+        y: -100, 
+        opacity: 0,
+        scale: 0.3,
+        rotation: Math.random() * 720 - 360,
+        color: '#ea580c' // 初始橙色
+      })
       
-    default:
-      animation = gsap.timeline()
+      gsap.to(characters, {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 1.5,
+        stagger: {
+          amount: 0.6,
+          from: "start"
+        },
+        ease: "bounce.out",
+        onComplete: () => {
+          // 动画完成后添加跳跃色彩效果
+          gsap.to(characters, {
+            color: '#f59e0b', // 黄色
+            duration: 0.3,
+            stagger: {
+              amount: 0.5,
+              from: "random"
+            },
+            yoyo: true,
+            repeat: 3,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.to(characters, {
+                color: '#f97316', // 最终橙色
+                duration: 0.4
+              })
+            }
+          })
+        }
+      })
+      break
   }
 }
 
 function animate3DText(type: string) {
-  if (!text3d.value) return
+  console.log('animate3DText called with type:', type)
+  if (!text3d.value) {
+    console.error('text3d element not found')
+    return
+  }
   
   // 重置
   gsap.set(text3d.value, { 
@@ -383,6 +505,9 @@ function animate3DText(type: string) {
         const span = document.createElement('span')
         span.textContent = char === ' ' ? '\u00A0' : char
         span.style.display = 'inline-block'
+        span.style.fontSize = 'inherit'
+        span.style.fontWeight = 'inherit'
+        span.style.color = 'inherit'
         text3d.value.appendChild(span)
       }
       
@@ -397,7 +522,13 @@ function animate3DText(type: string) {
           stagger: 0.1,
           ease: "power2.inOut",
           yoyo: true,
-          repeat: 1
+          repeat: 1,
+          onComplete: () => {
+            // 动画完成后恢复原始文本
+            if (text3d.value) {
+              text3d.value.innerHTML = "3D TEXT"
+            }
+          }
         }
       )
       break
@@ -558,5 +689,11 @@ function startGlitchLoop() {
 
 .text-3d-container {
   transform-style: preserve-3d;
+}
+
+/* Simplified to ensure visibility during split animations */
+.split-char {
+  display: inline-block;
+  color: #111827; /* gray-900 for readability */
 }
 </style>

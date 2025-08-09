@@ -4,7 +4,7 @@
     <ScrollParallaxAnimation :auto-start="true" />
     
     <!-- Hero Section with Parallax -->
-    <section class="parallax-hero h-screen relative overflow-hidden flex items-center justify-center">
+    <section class="flex overflow-hidden relative justify-center items-center h-screen parallax-hero">
       <!-- Background Layers -->
       <div ref="bgLayer1" class="absolute inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900"></div>
       <div ref="bgLayer2" class="absolute inset-0 opacity-50">
@@ -18,15 +18,15 @@
       </div>
       
       <!-- Content -->
-      <div class="text-center text-white z-10 px-4">
-        <h1 ref="heroTitle" class="text-6xl md:text-8xl font-bold mb-6 opacity-0">
+      <div class="z-10 px-4 text-center text-white">
+        <h1 ref="heroTitle" class="mb-6 text-6xl font-bold opacity-0 md:text-8xl">
           滚动动画
         </h1>
-        <p ref="heroSubtitle" class="text-xl md:text-2xl mb-8 opacity-0">
+        <p ref="heroSubtitle" class="mb-8 text-xl opacity-0 md:text-2xl">
           体验视差滚动和滚动触发的魔力
         </p>
-        <div ref="scrollHint" class="animate-bounce opacity-0">
-          <svg class="w-8 h-8 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div ref="scrollHint" class="opacity-0 animate-bounce">
+          <svg class="mx-auto w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </div>
@@ -34,16 +34,16 @@
     </section>
 
     <!-- Scroll Progress Bar -->
-    <div ref="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 w-0"></div>
+    <div ref="progressBar" class="fixed top-0 left-0 z-50 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
 
     <!-- Pin Animation Section -->
-    <section class="pin-section min-h-screen bg-gray-50 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center mb-20">
-          <h2 ref="pinTitle" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+    <section class="relative min-h-screen bg-gray-50 pin-section">
+      <div class="px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-20 text-center">
+          <h2 ref="pinTitle" class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
             固定动画效果
           </h2>
-          <p ref="pinSubtitle" class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p ref="pinSubtitle" class="mx-auto max-w-3xl text-xl text-gray-600">
             在滚动过程中固定元素，创造引人注目的视觉效果
           </p>
         </div>
@@ -53,10 +53,10 @@
             v-for="(item, index) in pinItems"
             :key="index"
             :ref="el => setPinItemRef(el, index)"
-            class="pin-item bg-white rounded-2xl p-8 shadow-lg opacity-0 transform translate-y-12"
+            class="p-8 bg-white rounded-2xl shadow-lg opacity-0 transform translate-y-12 pin-item"
           >
-            <div class="text-4xl mb-4">{{ item.icon }}</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ item.title }}</h3>
+            <div class="mb-4 text-4xl">{{ item.icon }}</div>
+            <h3 class="mb-3 text-xl font-bold text-gray-900">{{ item.title }}</h3>
             <p class="text-gray-600">{{ item.description }}</p>
           </div>
         </div>
@@ -64,61 +64,61 @@
     </section>
 
     <!-- Reveal Animation Section -->
-    <section class="reveal-section min-h-screen bg-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-          <h2 ref="revealTitle" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+    <section class="py-20 min-h-screen bg-white reveal-section">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-20 text-center">
+          <h2 ref="revealTitle" class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
             元素揭示动画
           </h2>
-          <p ref="revealSubtitle" class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p ref="revealSubtitle" class="mx-auto max-w-3xl text-xl text-gray-600">
             元素逐渐进入视野时的精美动画效果
           </p>
         </div>
 
         <div class="space-y-32">
           <!-- Image Reveal -->
-          <div class="reveal-item flex flex-col md:flex-row items-center gap-12">
+          <div class="flex flex-col gap-12 items-center reveal-item md:flex-row">
             <div class="flex-1">
-              <div ref="imageReveal" class="relative overflow-hidden rounded-2xl shadow-2xl">
-                <div class="image-overlay absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 z-10"></div>
-                <div class="w-full h-80 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+              <div ref="imageReveal" class="overflow-hidden relative rounded-2xl shadow-2xl">
+                <div class="absolute inset-0 z-10 bg-gradient-to-r from-blue-500 to-purple-500 image-overlay"></div>
+                <div class="flex justify-center items-center w-full h-80 bg-gradient-to-br from-blue-100 to-purple-100">
                   <span class="text-4xl">🖼️</span>
                 </div>
               </div>
             </div>
             <div class="flex-1">
-              <h3 ref="imageTitle" class="text-3xl font-bold text-gray-900 mb-4 opacity-0 transform translate-x-8">
+              <h3 ref="imageTitle" class="mb-4 text-3xl font-bold text-gray-900 opacity-0 transform translate-x-8">
                 图片揭示效果
               </h3>
-              <p ref="imageDesc" class="text-gray-600 text-lg opacity-0 transform translate-x-8">
+              <p ref="imageDesc" class="text-lg text-gray-600 opacity-0 transform translate-x-8">
                 图片从左侧滑入，配合覆盖层的擦除动画，创造出戏剧性的揭示效果。
               </p>
             </div>
           </div>
 
           <!-- Counter Animation -->
-          <div class="reveal-item text-center">
-            <h3 ref="counterTitle" class="text-3xl font-bold text-gray-900 mb-12 opacity-0">
+          <div class="text-center reveal-item">
+            <h3 ref="counterTitle" class="mb-12 text-3xl font-bold text-gray-900 opacity-0">
               数字滚动动画
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div 
                 v-for="(counter, index) in counters"
                 :key="index"
                 :ref="el => setCounterRef(el, index)"
-                class="counter-item bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 opacity-0 transform translate-y-8"
+                class="p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl opacity-0 transform translate-y-8 counter-item"
               >
-                <div class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
+                <div class="mb-2 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 md:text-5xl">
                   <span :ref="el => setCounterNumberRef(el, index)">0</span>{{ counter.suffix }}
                 </div>
-                <p class="text-gray-600 text-lg">{{ counter.label }}</p>
+                <p class="text-lg text-gray-600">{{ counter.label }}</p>
               </div>
             </div>
           </div>
 
           <!-- Text Reveal -->
-          <div class="reveal-item max-w-4xl mx-auto">
-            <h3 ref="textRevealTitle" class="text-3xl font-bold text-gray-900 mb-8 text-center opacity-0">
+          <div class="mx-auto max-w-4xl reveal-item">
+            <h3 ref="textRevealTitle" class="mb-8 text-3xl font-bold text-center text-gray-900 opacity-0">
               文字逐行揭示
             </h3>
             <div class="space-y-4">
@@ -126,7 +126,7 @@
                 v-for="(line, index) in textLines"
                 :key="index"
                 :ref="el => setTextLineRef(el, index)"
-                class="text-lg text-gray-600 leading-relaxed opacity-0 transform translate-y-4"
+                class="text-lg leading-relaxed text-gray-600 opacity-0 transform translate-y-4"
               >
                 {{ line }}
               </p>
@@ -137,32 +137,32 @@
     </section>
 
     <!-- Horizontal Scroll Section -->
-    <section ref="horizontalSection" class="horizontal-scroll-section bg-gray-900 text-white">
-      <div class="horizontal-container flex">
+    <section ref="horizontalSection" class="text-white bg-gray-900 horizontal-scroll-section">
+      <div class="flex horizontal-container">
         <div 
           v-for="(panel, index) in horizontalPanels"
           :key="index"
           :ref="el => setHorizontalPanelRef(el, index)"
-          class="horizontal-panel flex-none w-screen h-screen flex items-center justify-center relative"
+          class="flex relative flex-none justify-center items-center w-screen h-screen horizontal-panel"
           :style="{ backgroundColor: panel.bg }"
         >
-          <div class="text-center px-8">
-            <div class="text-6xl mb-6">{{ panel.icon }}</div>
-            <h3 class="text-4xl md:text-5xl font-bold mb-6">{{ panel.title }}</h3>
-            <p class="text-xl max-w-lg mx-auto">{{ panel.description }}</p>
+          <div class="px-8 text-center">
+            <div class="mb-6 text-6xl">{{ panel.icon }}</div>
+            <h3 class="mb-6 text-4xl font-bold md:text-5xl">{{ panel.title }}</h3>
+            <p class="mx-auto max-w-lg text-xl">{{ panel.description }}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Morphing Section -->
-    <section class="morphing-section min-h-screen bg-black text-white py-20 flex items-center">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section class="flex items-center py-20 min-h-screen text-white bg-black morphing-section">
+      <div class="px-4 mx-auto w-full max-w-7xl sm:px-6 lg:px-8">
         <div class="text-center">
-          <h2 ref="morphTitle" class="text-4xl md:text-5xl font-bold mb-12 opacity-0">
+          <h2 ref="morphTitle" class="mb-12 text-4xl font-bold opacity-0 md:text-5xl">
             形态变换动画
           </h2>
-          <div ref="morphContainer" class="morph-container flex justify-center items-center h-80">
+          <div ref="morphContainer" class="flex justify-center items-center h-80 morph-container">
             <svg width="300" height="300" viewBox="0 0 300 300">
               <path 
                 ref="morphPath"
@@ -185,12 +185,12 @@
     </section>
 
     <!-- Final Section -->
-    <section class="final-section min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white py-20 flex items-center">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
-        <h2 ref="finalTitle" class="text-5xl md:text-6xl font-bold mb-8 opacity-0">
+    <section class="flex items-center py-20 min-h-screen text-white bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 final-section">
+      <div class="px-4 mx-auto w-full max-w-7xl text-center sm:px-6 lg:px-8">
+        <h2 ref="finalTitle" class="mb-8 text-5xl font-bold opacity-0 md:text-6xl">
           滚动动画的魅力
         </h2>
-        <p ref="finalText" class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed opacity-0">
+        <p ref="finalText" class="mx-auto max-w-4xl text-xl leading-relaxed opacity-0 md:text-2xl">
           通过精心设计的滚动动画，我们可以创造出引人入胜的用户体验，
           让每一个滚动动作都充满惊喜与发现。
         </p>

@@ -80,7 +80,7 @@
       <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
           <h2 ref="featuresTitle" class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            为什么选择动画展示厅？
+            我的动画创作理念
           </h2>
         </div>
 
@@ -171,26 +171,26 @@ const animationCards = [
     description: '结合多种动画技术的综合展示案例',
     route: '/interactive-animations',
     icon: '🚀',
-    gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
   }
 ]
 
 const features = [
   {
-    title: '高性能',
-    description: '动画展示厅使用最优化的算法，确保动画流畅运行，即使在低端设备上也能保持60fps',
+    title: '流畅体验',
+    description: '每个动画都经过精心调优，追求丝滑的60fps体验，让视觉效果更加震撼',
     icon: '⚡',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
   },
   {
-    title: '易于使用',
-    description: '简洁的API设计，让复杂动画变得简单。无论新手还是专家都能快速上手',
+    title: '创意表达',
+    description: '通过代码艺术化地表达想法，将技术与美学完美融合，创造独特的视觉语言',
     icon: '🎨',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
   },
   {
-    title: '强大功能',
-    description: '支持CSS属性、SVG、Canvas等多种元素类型，提供丰富的缓动函数和插件',
+    title: '技术探索',
+    description: '持续探索动画技术的边界，从基础补间到复杂交互，记录每一次技术突破',
     icon: '💪',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
   }
