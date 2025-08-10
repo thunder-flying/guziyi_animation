@@ -16,6 +16,7 @@ export default defineConfig({
           vendor: ['vue', 'vue-router', 'pinia'],
           gsap: ['gsap'],
           ui: ['element-plus', '@vueuse/core'],
+          three: ['three'],
         },
       },
     },

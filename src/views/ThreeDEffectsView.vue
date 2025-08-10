@@ -1,7 +1,7 @@
 <template>
-  <div class="three-d-effects-view pt-16">
+  <div class="pt-16 three-d-effects-view">
     <!-- Page Header -->
-    <section class="py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white overflow-hidden relative">
+    <section class="overflow-hidden relative py-20 text-white bg-gradient-to-r from-purple-600 to-pink-600">
       <div class="absolute inset-0">
         <div 
           v-for="i in 15" 
@@ -12,11 +12,11 @@
         ></div>
       </div>
       
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 ref="pageTitle" class="text-5xl md:text-6xl font-bold mb-6 transform perspective-1000 rotateX-10">
+      <div class="relative z-10 px-4 mx-auto max-w-7xl text-center sm:px-6 lg:px-8">
+        <h1 ref="pageTitle" class="mb-6 text-5xl font-bold transform md:text-6xl perspective-1000 rotateX-10">
           3D视觉效果
         </h1>
-        <p ref="pageSubtitle" class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+        <p ref="pageSubtitle" class="mx-auto max-w-3xl text-xl opacity-90 md:text-2xl">
           探索真实3D空间，体验立体视觉的魅力
         </p>
       </div>
@@ -24,56 +24,56 @@
 
     <!-- 3D立体相册 Section -->
     <section class="py-20 bg-gray-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">3D立体相册</h2>
-          <p class="text-gray-600 mb-8">体验真实的3D翻页效果和空间层次感</p>
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">3D立体相册</h2>
+          <p class="mb-8 text-gray-600">体验真实的3D翻页效果和空间层次感</p>
           
-          <div class="bg-white rounded-2xl p-8 shadow-lg max-w-6xl mx-auto">
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <div class="p-8 mx-auto max-w-6xl bg-white rounded-2xl shadow-lg">
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
               <button 
                 @click="photo3DEffect('flip')"
-                class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-purple-500 rounded-lg transition-colors hover:bg-purple-600"
               >
                 翻转相册
               </button>
               <button 
                 @click="photo3DEffect('carousel')"
-                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-blue-500 rounded-lg transition-colors hover:bg-blue-600"
               >
                 旋转木马
               </button>
               <button 
                 @click="photo3DEffect('stack')"
-                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-green-500 rounded-lg transition-colors hover:bg-green-600"
               >
                 堆叠展开
               </button>
               <button 
                 @click="photo3DEffect('sphere')"
-                class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-pink-500 rounded-lg transition-colors hover:bg-pink-600"
               >
                 球形排列
               </button>
             </div>
 
             <!-- 3D相册容器 -->
-            <div ref="photoContainer" class="photo-3d-container relative h-96 flex items-center justify-center" style="perspective: 1200px;">
+            <div ref="photoContainer" class="flex relative justify-center items-center h-96 photo-3d-container" style="perspective: 1200px;">
               <div 
                 v-for="(photo, index) in photoAlbum"
                 :key="index"
                 :ref="el => setPhoto3DRef(el, index)"
-                class="photo-3d-item absolute w-64 h-40 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+                class="overflow-hidden absolute w-64 h-40 rounded-lg shadow-lg cursor-pointer photo-3d-item"
                 @click="selectPhoto(index)"
                 :style="`transform-style: preserve-3d; background: ${photo.gradient};`"
               >
-                <div class="w-full h-full flex items-center justify-center text-white text-2xl font-bold relative z-10">
+                <div class="flex relative z-10 justify-center items-center w-full h-full text-2xl font-bold text-white">
                   {{ photo.title }}
                 </div>
                 <div class="absolute inset-0 bg-black/10"></div>
                 
                 <!-- 3D反射效果 -->
-                <div class="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 reflection"></div>
+                <div class="absolute inset-0 bg-gradient-to-t to-transparent opacity-0 from-white/20 reflection"></div>
               </div>
             </div>
           </div>
@@ -83,43 +83,43 @@
 
     <!-- 全景展示 Section -->
     <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">全景展示</h2>
-          <p class="text-gray-600 mb-8">360度全景视角，沉浸式空间体验</p>
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">全景展示</h2>
+          <p class="mb-8 text-gray-600">360度全景视角，沉浸式空间体验</p>
           
-          <div class="bg-white rounded-2xl p-8 shadow-lg max-w-6xl mx-auto">
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <div class="p-8 mx-auto max-w-6xl bg-white rounded-2xl shadow-lg">
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
               <button 
                 @click="panoramaMode('360')"
-                class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-indigo-500 rounded-lg transition-colors hover:bg-indigo-600"
               >
                 360度旋转
               </button>
               <button 
                 @click="panoramaMode('zoom')"
-                class="bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-teal-500 rounded-lg transition-colors hover:bg-teal-600"
               >
                 缩放探索
               </button>
               <button 
                 @click="panoramaMode('fish')"
-                class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-orange-500 rounded-lg transition-colors hover:bg-orange-600"
               >
                 鱼眼视角
               </button>
             </div>
 
             <!-- 全景容器 -->
-            <div ref="panoramaContainer" class="panorama-container relative h-80 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 rounded-xl overflow-hidden" style="perspective: 1000px;">
+            <div ref="panoramaContainer" class="overflow-hidden relative h-80 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 rounded-xl panorama-container" style="perspective: 1000px;">
               <!-- 全景场景 -->
-              <div ref="panoramaScene" class="panorama-scene w-full h-full relative" style="transform-style: preserve-3d;">
+              <div ref="panoramaScene" class="relative w-full h-full panorama-scene" style="transform-style: preserve-3d;">
                 <!-- 天空盒子 -->
                 <div 
                   v-for="(face, index) in skyboxFaces"
                   :key="index"
                   :ref="el => setSkyboxRef(el, index)"
-                  class="skybox-face absolute w-full h-full flex items-center justify-center text-white text-4xl font-bold"
+                  class="flex absolute justify-center items-center w-full h-full text-4xl font-bold text-white skybox-face"
                   :style="`background: ${face.gradient}; transform: ${face.transform};`"
                 >
                   {{ face.label }}
@@ -130,17 +130,17 @@
                   v-for="i in 8"
                   :key="i"
                   :ref="el => setPanoramaObjectRef(el, i)"
-                  class="panorama-object absolute w-12 h-12 bg-yellow-400 rounded-lg shadow-lg"
+                  class="absolute w-12 h-12 bg-yellow-400 rounded-lg shadow-lg panorama-object"
                   :style="getPanoramaObjectStyle(i)"
                 >
-                  <div class="w-full h-full flex items-center justify-center text-gray-800 font-bold">
+                  <div class="flex justify-center items-center w-full h-full font-bold text-gray-800">
                     {{ i }}
                   </div>
                 </div>
               </div>
               
               <!-- 控制指示器 -->
-              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-lg text-sm">
+              <div class="absolute bottom-4 left-1/2 px-4 py-2 text-sm text-white rounded-lg transform -translate-x-1/2 bg-black/50">
                 拖拽鼠标探索全景 | 滚轮缩放
               </div>
             </div>
@@ -150,48 +150,48 @@
     </section>
 
     <!-- 真实3D文字 Section -->
-    <section class="py-20 bg-gray-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">真实3D文字</h2>
-          <p class="text-gray-300 mb-8">立体文字效果，真实的深度和阴影</p>
+    <section class="py-20 text-white bg-gray-900">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold md:text-4xl">真实3D文字</h2>
+          <p class="mb-8 text-gray-300">立体文字效果，真实的深度和阴影</p>
           
-          <div class="bg-gray-800 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto">
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <div class="p-8 mx-auto max-w-6xl bg-gray-800 rounded-2xl shadow-lg">
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
               <button 
                 @click="text3DEffect('extrude')"
-                class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-red-500 rounded-lg transition-colors hover:bg-red-600"
               >
                 挤压文字
               </button>
               <button 
                 @click="text3DEffect('rotate')"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-yellow-500 rounded-lg transition-colors hover:bg-yellow-600"
               >
                 旋转文字
               </button>
               <button 
                 @click="text3DEffect('wave')"
-                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-green-500 rounded-lg transition-colors hover:bg-green-600"
               >
                 波浪文字
               </button>
               <button 
                 @click="text3DEffect('explode')"
-                class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-purple-500 rounded-lg transition-colors hover:bg-purple-600"
               >
                 爆炸文字
               </button>
             </div>
 
             <!-- 3D文字容器 -->
-            <div ref="text3DContainer" class="text-3d-container h-60 flex items-center justify-center relative" style="perspective: 800px;">
+            <div ref="text3DContainer" class="flex relative justify-center items-center h-60 text-3d-container" style="perspective: 800px;">
               <div ref="text3DGroup" class="text-3d-group" style="transform-style: preserve-3d;">
                 <div 
                   v-for="(char, index) in '3D视觉'"
                   :key="index"
                   :ref="el => setText3DRef(el, index)"
-                  class="text-3d-char inline-block text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+                  class="inline-block text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-3d-char"
                   style="transform-style: preserve-3d;"
                 >
                   {{ char }}
@@ -217,51 +217,51 @@
     </section>
 
     <!-- 光线追踪效果 Section -->
-    <section class="py-20 bg-black relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">光线追踪效果</h2>
-          <p class="text-gray-300 mb-8">真实的光照、反射和阴影效果</p>
+    <section class="overflow-hidden relative py-20 bg-black">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">光线追踪效果</h2>
+          <p class="mb-8 text-gray-300">真实的光照、反射和阴影效果</p>
           
-          <div class="bg-gray-900 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto relative">
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <div class="relative p-8 mx-auto max-w-6xl bg-gray-900 rounded-2xl shadow-lg">
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
               <button 
                 @click="rayTracingEffect('sphere')"
-                class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-cyan-500 rounded-lg transition-colors hover:bg-cyan-600"
               >
                 反射球体
               </button>
               <button 
                 @click="rayTracingEffect('glass')"
-                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-blue-500 rounded-lg transition-colors hover:bg-blue-600"
               >
                 玻璃材质
               </button>
               <button 
                 @click="rayTracingEffect('metal')"
-                class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-gray-500 rounded-lg transition-colors hover:bg-gray-600"
               >
                 金属材质
               </button>
               <button 
                 @click="rayTracingEffect('hologram')"
-                class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                class="px-6 py-3 font-medium text-white bg-pink-500 rounded-lg transition-colors hover:bg-pink-600"
               >
                 全息效果
               </button>
             </div>
 
             <!-- 光线追踪容器 -->
-            <div ref="rayTracingContainer" class="raytracing-container relative h-80 bg-gradient-to-b from-gray-800 to-black rounded-xl overflow-hidden">
+            <div ref="rayTracingContainer" class="overflow-hidden relative h-80 bg-gradient-to-b from-gray-800 to-black rounded-xl raytracing-container">
               <!-- 光源 -->
               <div 
                 v-for="i in 3"
                 :key="i"
                 :ref="el => setLightSourceRef(el, i)"
-                class="light-source absolute w-4 h-4 bg-white rounded-full shadow-lg"
+                class="absolute w-4 h-4 bg-white rounded-full shadow-lg light-source"
                 :style="getLightSourceStyle(i)"
               >
-                <div class="absolute inset-0 bg-white rounded-full animate-ping opacity-75"></div>
+                <div class="absolute inset-0 bg-white rounded-full opacity-75 animate-ping"></div>
               </div>
               
               <!-- 3D对象 -->
@@ -269,7 +269,7 @@
                 v-for="(obj, index) in rayTracingObjects"
                 :key="index"
                 :ref="el => setRayTracingObjectRef(el, index)"
-                class="raytracing-object absolute rounded-lg shadow-2xl"
+                class="absolute rounded-lg shadow-2xl raytracing-object"
                 :style="`
                   width: ${obj.size}px;
                   height: ${obj.size}px;
@@ -279,10 +279,10 @@
                 `"
               >
                 <!-- 反射效果 -->
-                <div class="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-lg reflection-layer"></div>
+                <div class="absolute inset-0 bg-gradient-to-br to-transparent rounded-lg from-white/30 reflection-layer"></div>
                 <!-- 阴影 -->
                 <div 
-                  class="absolute top-full left-1/2 transform -translate-x-1/2 bg-black/30 rounded-full shadow-element"
+                  class="absolute top-full left-1/2 rounded-full transform -translate-x-1/2 bg-black/30 shadow-element"
                   :style="`width: ${obj.size * 0.8}px; height: ${obj.size * 0.3}px; filter: blur(${obj.size * 0.1}px);`"
                 ></div>
               </div>
@@ -304,35 +304,56 @@
     </section>
 
     <!-- 综合3D演示 Section -->
-    <section class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">综合3D演示</h2>
-          <p class="text-gray-200 mb-8">结合多种3D技术的综合展示</p>
+    <section class="py-20 text-white bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold md:text-4xl">综合3D演示</h2>
+          <p class="mb-8 text-gray-200">结合多种3D技术的综合展示</p>
           
-          <div class="bg-black/30 rounded-2xl p-8 shadow-lg max-w-6xl mx-auto backdrop-blur-sm">
-            <div class="flex justify-center gap-4 mb-8">
+          <div class="p-8 mx-auto max-w-6xl rounded-2xl shadow-lg backdrop-blur-sm bg-black/30">
+            <div class="flex gap-4 justify-center mb-8">
               <button 
                 @click="comprehensiveDemo('start')"
-                class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-lg font-medium transition-all transform hover:scale-105"
+                class="px-8 py-3 font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg transition-all transform hover:from-purple-600 hover:to-pink-600 hover:scale-105"
               >
                 开始演示
               </button>
               <button 
                 @click="comprehensiveDemo('stop')"
-                class="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+                class="px-8 py-3 font-medium text-white bg-gray-600 rounded-lg transition-colors hover:bg-gray-700"
               >
                 停止演示
               </button>
             </div>
 
             <!-- 综合演示容器 -->
-            <div ref="comprehensiveContainer" class="comprehensive-container relative h-96 rounded-xl overflow-hidden" style="perspective: 1200px; background: radial-gradient(circle at center, #1f2937 0%, #000000 100%);">
+            <div ref="comprehensiveContainer" class="overflow-hidden relative h-96 rounded-xl comprehensive-container" style="perspective: 1200px; background: radial-gradient(circle at center, #1f2937 0%, #000000 100%);">
               <!-- 演示内容将通过JS动态生成 -->
-              <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+              <div class="flex absolute inset-0 justify-center items-center text-gray-400">
                 点击"开始演示"体验完整的3D效果
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three.js 基础展示 Section -->
+    <section class="py-20 bg-gray-100">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">Three.js 旋转立方体</h2>
+          <p class="mb-8 text-gray-600">按需加载 three.js，展示基础 3D 场景</p>
+
+          <div class="p-6 mx-auto max-w-4xl bg-white rounded-2xl shadow-lg">
+            <Suspense>
+              <template #default>
+                <AsyncRotatingCube />
+              </template>
+              <template #fallback>
+                <div class="flex justify-center items-center h-96 text-gray-500">正在加载 3D 组件...</div>
+              </template>
+            </Suspense>
           </div>
         </div>
       </div>
@@ -341,7 +362,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, defineAsyncComponent } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 
@@ -358,6 +379,8 @@ const text3DGroup = ref<HTMLElement>()
 const rayTracingContainer = ref<HTMLElement>()
 const rayTracingSVG = ref<SVGElement>()
 const comprehensiveContainer = ref<HTMLElement>()
+// Async three.js component (code-splitting)
+const AsyncRotatingCube = defineAsyncComponent(() => import('@/components/animations/ThreeRotatingCube.vue'))
 
 // Ref arrays
 const bg3DRefs = ref<HTMLElement[]>([])
@@ -888,7 +911,7 @@ function comprehensiveDemo(action: 'start' | 'stop') {
     }
     if (comprehensiveContainer.value) {
       comprehensiveContainer.value.innerHTML = `
-        <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+        <div class="flex absolute inset-0 justify-center items-center text-gray-400">
           点击"开始演示"体验完整的3D效果
         </div>
       `
@@ -900,11 +923,11 @@ function comprehensiveDemo(action: 'start' | 'stop') {
 
   // 创建综合演示内容
   comprehensiveContainer.value.innerHTML = `
-    <div class="demo-stage absolute inset-0" style="transform-style: preserve-3d;">
-      <div class="demo-element absolute w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shadow-lg" style="left: 20%; top: 30%; transform-style: preserve-3d;"></div>
-      <div class="demo-element absolute w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg" style="right: 20%; top: 40%; transform-style: preserve-3d;"></div>
-      <div class="demo-element absolute w-24 h-24 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shadow-lg" style="left: 50%; bottom: 20%; transform-style: preserve-3d;"></div>
-      <div class="demo-text absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white" style="transform-style: preserve-3d;">3D</div>
+    <div class="absolute inset-0 demo-stage" style="transform-style: preserve-3d;">
+      <div class="absolute w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shadow-lg demo-element" style="left: 20%; top: 30%; transform-style: preserve-3d;"></div>
+      <div class="absolute w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full shadow-lg demo-element" style="right: 20%; top: 40%; transform-style: preserve-3d;"></div>
+      <div class="absolute w-24 h-24 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shadow-lg demo-element" style="left: 50%; bottom: 20%; transform-style: preserve-3d;"></div>
+      <div class="absolute top-1/2 left-1/2 text-4xl font-bold text-white transform -translate-x-1/2 -translate-y-1/2 demo-text" style="transform-style: preserve-3d;">3D</div>
     </div>
   `
 
