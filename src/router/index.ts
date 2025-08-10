@@ -37,6 +37,24 @@ const routes: RouteRecordRaw[] = [
     name: 'TimelineAnimations',
     component: () => import('@/views/TimelineAnimationsView.vue'),
     meta: { title: '时间轴动画' }
+  },
+  {
+    path: '/3d-effects',
+    name: 'ThreeDEffects',
+    component: () => import('@/views/ThreeDEffectsView.vue'),
+    meta: { title: '3D视觉效果' }
+  },
+  {
+    path: '/visual-effects',
+    name: 'VisualEffects',
+    component: () => import('@/views/VisualEffectsView.vue'),
+    meta: { title: '视觉特效' }
+  },
+  {
+    path: '/game-effects',
+    name: 'GameEffects',
+    component: () => import('@/views/GameEffectsView.vue'),
+    meta: { title: '游戏化动画' }
   }
 ]
 

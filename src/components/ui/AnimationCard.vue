@@ -26,15 +26,39 @@
       </h3>
       
       <!-- 描述 -->
-      <p ref="descRef" class="text-gray-600 transition-colors duration-300">
+      <p ref="descRef" class="text-gray-600 transition-colors duration-300 mb-3">
         {{ description }}
       </p>
       
+      <!-- Features标签 -->
+      <div v-if="features && features.length > 0" ref="featuresRef" class="mb-3 opacity-0 transform translate-y-2 transition-all duration-300">
+        <div class="flex flex-wrap gap-1">
+          <span 
+            v-for="(feature, index) in features.slice(0, 3)" 
+            :key="index"
+            class="inline-block px-2 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded-full feature-tag"
+          >
+            {{ feature }}
+          </span>
+          <span v-if="features.length > 3" class="inline-block px-2 py-1 text-xs text-gray-500">
+            +{{ features.length - 3 }}
+          </span>
+        </div>
+      </div>
+      
+      <!-- Coming Soon 标识 -->
+      <div v-if="comingSoon" class="absolute top-4 right-4 px-2 py-1 bg-orange-500 text-white text-xs font-bold rounded-full transform rotate-12">
+        即将推出
+      </div>
+      
       <!-- 箭头图标 -->
-      <div ref="arrowRef" class="mt-4 flex items-center text-blue-600 font-medium opacity-0 transform translate-x-2 transition-all duration-300">
-        <span class="mr-2">查看详情</span>
-        <svg class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div ref="arrowRef" class="mt-2 flex items-center text-blue-600 font-medium opacity-0 transform translate-x-2 transition-all duration-300">
+        <span class="mr-2">{{ comingSoon ? '敬请期待' : '查看详情' }}</span>
+        <svg v-if="!comingSoon" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <svg v-else class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
       </div>
     </div>
@@ -61,6 +85,8 @@ interface Props {
   route: string
   icon: string
   gradient: string
+  features?: string[]
+  comingSoon?: boolean
 }
 
 const props = defineProps<Props>()
@@ -72,6 +98,7 @@ const iconRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
 const descRef = ref<HTMLElement>()
 const arrowRef = ref<HTMLElement>()
+const featuresRef = ref<HTMLElement>()
 const decorRefs = ref<HTMLElement[]>([])
 
 function setDecorRef(el: HTMLElement | null, index: number) {
@@ -88,7 +115,26 @@ function getDecorStyle(index: number) {
 }
 
 function navigateToRoute() {
-  // 点击动画
+  if (props.comingSoon) {
+    // Coming soon 提示动画
+    const tl = gsap.timeline()
+    
+    tl.to(cardRef.value, {
+      scale: 0.98,
+      duration: 0.1,
+      ease: "power2.inOut"
+    })
+    .to(cardRef.value, {
+      scale: 1,
+      duration: 0.2,
+      ease: "elastic.out(1, 0.5)"
+    })
+    
+    // 显示提示信息（可以在这里添加toast通知）
+    return
+  }
+  
+  // 正常导航动画
   const tl = gsap.timeline({
     onComplete: () => {
       router.push(props.route)
@@ -132,6 +178,24 @@ function onMouseEnter() {
     ease: "power2.out"
   }, 0)
   
+  // Features显示
+  if (featuresRef.value) {
+    tl.to(featuresRef.value, {
+      opacity: 1,
+      y: 0,
+      duration: 0.3,
+      ease: "power2.out"
+    }, 0.1)
+    
+    // Features标签动画
+    tl.to(featuresRef.value.querySelectorAll('.feature-tag'), {
+      scale: 1.05,
+      duration: 0.2,
+      stagger: 0.05,
+      ease: "power2.out"
+    }, 0.15)
+  }
+  
   // 箭头显示
   tl.to(arrowRef.value, {
     opacity: 1,
@@ -173,6 +237,23 @@ function onMouseLeave() {
     ease: "power2.out"
   }, 0)
   
+  // Features隐藏
+  if (featuresRef.value) {
+    tl.to(featuresRef.value, {
+      opacity: 0,
+      y: 8,
+      duration: 0.3,
+      ease: "power2.out"
+    }, 0)
+    
+    tl.to(featuresRef.value.querySelectorAll('.feature-tag'), {
+      scale: 1,
+      duration: 0.2,
+      stagger: 0.02,
+      ease: "power2.out"
+    }, 0)
+  }
+  
   tl.to(arrowRef.value, {
     opacity: 0,
     x: 8,
@@ -209,5 +290,32 @@ onMounted(() => {
 
 .animation-card:hover {
   transform: translateY(-8px);
+}
+
+.feature-tag {
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.animation-card:hover .feature-tag {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #374151;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Coming Soon 标识动画 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: rotate(12deg) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: rotate(12deg) scale(1.05);
+  }
+}
+
+.animation-card:hover .absolute.top-4.right-4 {
+  animation: pulse 2s infinite;
 }
 </style>

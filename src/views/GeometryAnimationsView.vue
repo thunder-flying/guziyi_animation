@@ -258,6 +258,215 @@
       </div>
     </section>
 
+    <!-- Liquid Morphing -->
+    <section class="py-20 bg-gradient-to-br from-blue-900 to-purple-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">液体变形动画</h2>
+          <p class="text-gray-300 mb-8">流体形状的有机变化和粘性效果</p>
+          
+          <div class="bg-black bg-opacity-50 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            <div class="liquid-container h-80 relative overflow-hidden">
+              <svg width="100%" height="100%" viewBox="0 0 400 300" class="absolute inset-0">
+                <defs>
+                  <filter id="gooey">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+                    <feBlend in="SourceGraphic" in2="gooey" />
+                  </filter>
+                  <linearGradient id="liquidGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.9" />
+                    <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
+                    <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.9" />
+                  </linearGradient>
+                </defs>
+                
+                <g filter="url(#gooey)">
+                  <circle 
+                    v-for="i in 6"
+                    :key="i"
+                    :ref="el => setLiquidBlobRef(el, i)"
+                    r="30"
+                    fill="url(#liquidGradient)"
+                    :cx="200"
+                    :cy="150"
+                  />
+                </g>
+              </svg>
+            </div>
+            
+            <div class="flex flex-wrap gap-4 justify-center mt-6">
+              <button 
+                @click="triggerLiquidEffect('merge')"
+                class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition-colors"
+              >
+                融合效果
+              </button>
+              <button 
+                @click="triggerLiquidEffect('split')"
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                分离效果
+              </button>
+              <button 
+                @click="triggerLiquidEffect('wave')"
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors"
+              >
+                波动效果
+              </button>
+              <button 
+                @click="triggerLiquidEffect('vortex')"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                漩涡效果
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kaleidoscope Effect -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">万花筒效果</h2>
+          <p class="text-gray-300 mb-8">对称的几何图案和万花筒动画</p>
+          
+          <div class="bg-black rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            <div class="kaleidoscope-container h-96 relative overflow-hidden">
+              <div 
+                ref="kaleidoscopeContainer"
+                class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-900 to-blue-900"
+                style="clip-path: circle(50% at 50% 50%)"
+              >
+                <svg width="100%" height="100%" viewBox="0 0 400 400" class="absolute inset-0">
+                  <defs>
+                    <pattern id="kaleidoPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                      <circle cx="50" cy="50" r="20" fill="#ff6b6b" opacity="0.8"/>
+                      <rect x="30" y="30" width="40" height="40" fill="#4ecdc4" opacity="0.6" transform="rotate(45 50 50)"/>
+                      <polygon points="50,20 70,60 30,60" fill="#45b7d1" opacity="0.7"/>
+                    </pattern>
+                    <mask id="kaleidoMask">
+                      <polygon points="200,200 200,50 350,200" fill="white"/>
+                    </mask>
+                  </defs>
+                  
+                  <g ref="kaleidoscopeGroup" transform-origin="200 200">
+                    <g v-for="i in 12" :key="i" :transform="`rotate(${i * 30} 200 200)`">
+                      <g mask="url(#kaleidoMask)">
+                        <rect width="400" height="400" fill="url(#kaleidoPattern)" :opacity="0.8"/>
+                        <circle 
+                          v-for="j in 5"
+                          :key="j"
+                          :ref="el => setKaleidoShapeRef(el, i, j)"
+                          :cx="200 + j * 20"
+                          :cy="150 + j * 10"
+                          :r="5 + j * 2"
+                          :fill="`hsl(${(i * 30 + j * 60) % 360}, 70%, 60%)`"
+                          opacity="0.8"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-4 justify-center mt-6">
+              <button 
+                @click="rotateKaleidoscope('slow')"
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                慢速旋转
+              </button>
+              <button 
+                @click="rotateKaleidoscope('fast')"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                快速旋转
+              </button>
+              <button 
+                @click="kaleidoscopeTransform('pulse')"
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors"
+              >
+                脉冲效果
+              </button>
+              <button 
+                @click="kaleidoscopeTransform('zoom')"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                缩放效果
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Origami Folding Animation -->
+    <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">折纸动画</h2>
+          <p class="text-gray-300 mb-8">纸张折叠的3D动画效果</p>
+          
+          <div class="bg-white bg-opacity-10 rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            <div class="origami-container h-80 relative" style="perspective: 1000px;">
+              <div 
+                v-for="i in 9"
+                :key="i"
+                :ref="el => setOrigamiPaperRef(el, i)"
+                class="absolute w-16 h-16 bg-gradient-to-br from-white to-gray-200 border border-gray-300 transform-gpu"
+                :style="getOrigamiPosition(i)"
+                style="transform-style: preserve-3d; backface-visibility: visible;"
+              >
+                <!-- 正面 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white to-blue-100 rounded-sm">
+                  <div class="w-full h-full flex items-center justify-center text-gray-600 font-bold">
+                    {{ i }}
+                  </div>
+                </div>
+                <!-- 背面 -->
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-200 to-pink-200 rounded-sm transform rotateY-180">
+                  <div class="w-full h-full flex items-center justify-center text-purple-800 font-bold">
+                    ✦
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-4 justify-center mt-6">
+              <button 
+                @click="foldOrigami('flower')"
+                class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors"
+              >
+                折花朵
+              </button>
+              <button 
+                @click="foldOrigami('crane')"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                折纸鹤
+              </button>
+              <button 
+                @click="foldOrigami('box')"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                折盒子
+              </button>
+              <button 
+                @click="unfoldOrigami()"
+                class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                展开
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SVG Drawing Animation Section -->
     <SVGDrawAnimation :auto-start="false" :duration="3" />
   </div>
@@ -352,6 +561,11 @@ const animationPath = ref<SVGPathElement>()
 const pathCircle = ref<SVGCircleElement>()
 const movingElement = ref<HTMLElement>()
 const geometryRefs = ref<HTMLElement[]>([])
+const liquidBlobRefs = ref<SVGCircleElement[]>([])
+const kaleidoscopeContainer = ref<HTMLElement>()
+const kaleidoscopeGroup = ref<SVGGElement>()
+const kaleidoShapeRefs = ref<SVGCircleElement[][]>([])
+const origamiPaperRefs = ref<HTMLElement[]>([])
 
 // Shape paths - 简化为线性路径以支持自定义变形
 const shapePaths = {
@@ -371,12 +585,38 @@ function setGeometryRef(el: HTMLElement | null, index: number) {
   if (el) geometryRefs.value[index] = el
 }
 
+function setLiquidBlobRef(el: SVGCircleElement | null, index: number) {
+  if (el) liquidBlobRefs.value[index] = el
+}
+
+function setKaleidoShapeRef(el: SVGCircleElement | null, i: number, j: number) {
+  if (el) {
+    if (!kaleidoShapeRefs.value[i]) {
+      kaleidoShapeRefs.value[i] = []
+    }
+    kaleidoShapeRefs.value[i][j] = el
+  }
+}
+
+function setOrigamiPaperRef(el: HTMLElement | null, index: number) {
+  if (el) origamiPaperRefs.value[index] = el
+}
+
 function getGeometryPosition(index: number) {
   const row = Math.floor((index - 1) / 5)
   const col = (index - 1) % 5
   return {
     left: `${col * 15 + 10}%`,
     top: `${row * 15 + 10}%`
+  }
+}
+
+function getOrigamiPosition(index: number) {
+  const row = Math.floor((index - 1) / 3)
+  const col = (index - 1) % 3
+  return {
+    left: `${col * 25 + 12.5}%`,
+    top: `${row * 25 + 12.5}%`
   }
 }
 
@@ -978,6 +1218,336 @@ function geometricTransform(transformType: string) {
       break
   }
 }
+
+// Liquid Morphing Functions
+function triggerLiquidEffect(effectType: string) {
+  const blobs = liquidBlobRefs.value.filter(Boolean)
+  
+  switch (effectType) {
+    case 'merge':
+      // 所有blob聚合到中心
+      blobs.forEach((blob, index) => {
+        gsap.to(blob, {
+          attr: {
+            cx: 200 + Math.sin(index * Math.PI / 3) * 15,
+            cy: 150 + Math.cos(index * Math.PI / 3) * 15,
+            r: 25 + Math.sin(index) * 5
+          },
+          duration: 2,
+          ease: "power2.inOut",
+          delay: index * 0.1
+        })
+      })
+      break
+      
+    case 'split':
+      // 分散到各个角落
+      blobs.forEach((blob, index) => {
+        const angle = (index / blobs.length) * Math.PI * 2
+        const radius = 80 + Math.random() * 40
+        gsap.to(blob, {
+          attr: {
+            cx: 200 + Math.cos(angle) * radius,
+            cy: 150 + Math.sin(angle) * radius,
+            r: 20 + Math.random() * 15
+          },
+          duration: 1.5,
+          ease: "power2.out",
+          delay: index * 0.05
+        })
+      })
+      break
+      
+    case 'wave':
+      // 波浪运动
+      blobs.forEach((blob, index) => {
+        const tl = gsap.timeline({ repeat: 2 })
+        tl.to(blob, {
+          attr: {
+            cy: 100 + Math.sin(index * Math.PI / 3) * 30,
+            r: 35
+          },
+          duration: 0.8,
+          ease: "power2.inOut"
+        })
+        .to(blob, {
+          attr: {
+            cy: 200 + Math.sin(index * Math.PI / 3) * 30,
+            r: 25
+          },
+          duration: 0.8,
+          ease: "power2.inOut"
+        })
+        .to(blob, {
+          attr: {
+            cy: 150,
+            r: 30
+          },
+          duration: 0.4,
+          ease: "elastic.out(1, 0.3)"
+        })
+      })
+      break
+      
+    case 'vortex':
+      // 漩涡效果
+      blobs.forEach((blob, index) => {
+        const radius = 60
+        const startAngle = (index / blobs.length) * Math.PI * 2
+        
+        gsap.to(blob, {
+          motionPath: {
+            path: `M${200 + Math.cos(startAngle) * radius},${150 + Math.sin(startAngle) * radius} 
+                   A${radius},${radius} 0 1,1 ${200 + Math.cos(startAngle + Math.PI * 4) * 10},${150 + Math.sin(startAngle + Math.PI * 4) * 10}`,
+            autoRotate: false
+          },
+          attr: { r: 15 },
+          duration: 3,
+          ease: "power1.inOut",
+          delay: index * 0.1,
+          onComplete: () => {
+            gsap.to(blob, {
+              attr: {
+                cx: 200,
+                cy: 150,
+                r: 30
+              },
+              duration: 0.5,
+              ease: "back.out(1.7)"
+            })
+          }
+        })
+      })
+      break
+  }
+}
+
+// Kaleidoscope Functions
+function rotateKaleidoscope(speed: string) {
+  if (!kaleidoscopeGroup.value) return
+  
+  const duration = speed === 'slow' ? 10 : speed === 'fast' ? 2 : 5
+  
+  gsap.to(kaleidoscopeGroup.value, {
+    rotation: 360,
+    duration: duration,
+    ease: "none",
+    repeat: 3
+  })
+  
+  // 同时让内部形状有不同的旋转
+  kaleidoShapeRefs.value.forEach((shapes, i) => {
+    shapes.forEach((shape, j) => {
+      if (shape) {
+        gsap.to(shape, {
+          attr: {
+            r: 5 + j * 2 + Math.sin(i + j) * 3
+          },
+          duration: duration / 2,
+          repeat: 6,
+          yoyo: true,
+          ease: "power2.inOut"
+        })
+      }
+    })
+  })
+}
+
+function kaleidoscopeTransform(type: string) {
+  if (!kaleidoscopeContainer.value) return
+  
+  switch (type) {
+    case 'pulse':
+      gsap.to(kaleidoscopeContainer.value, {
+        scale: 1.3,
+        duration: 0.8,
+        ease: "power2.out",
+        yoyo: true,
+        repeat: 3
+      })
+      
+      // 让形状也跟着脉冲
+      kaleidoShapeRefs.value.forEach((shapes) => {
+        shapes.forEach((shape) => {
+          if (shape) {
+            gsap.to(shape, {
+              attr: { r: 20 },
+              duration: 0.4,
+              ease: "power2.out",
+              yoyo: true,
+              repeat: 6
+            })
+          }
+        })
+      })
+      break
+      
+    case 'zoom':
+      const tl = gsap.timeline()
+      tl.to(kaleidoscopeContainer.value, {
+        scale: 0.3,
+        duration: 1,
+        ease: "power2.inOut"
+      })
+      .to(kaleidoscopeContainer.value, {
+        scale: 1.5,
+        duration: 1,
+        ease: "power2.out"
+      })
+      .to(kaleidoscopeContainer.value, {
+        scale: 1,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.5)"
+      })
+      break
+  }
+}
+
+// Origami Functions
+function foldOrigami(pattern: string) {
+  const papers = origamiPaperRefs.value.filter(Boolean)
+  
+  // 重置所有纸片
+  gsap.set(papers, {
+    rotationX: 0,
+    rotationY: 0,
+    rotationZ: 0,
+    scale: 1,
+    x: 0,
+    y: 0
+  })
+  
+  switch (pattern) {
+    case 'flower':
+      // 花朵折法 - 中心聚拢，外围展开
+      papers.forEach((paper, index) => {
+        const isCenter = index === 4 // 中心纸片 (第5个)
+        
+        if (isCenter) {
+          gsap.to(paper, {
+            rotationX: 45,
+            scale: 1.2,
+            z: 20,
+            duration: 1.5,
+            ease: "power2.out"
+          })
+        } else {
+          const angle = (index < 4 ? index : index - 1) * 90
+          const distance = 30
+          
+          gsap.to(paper, {
+            rotationX: -30,
+            rotationY: 45,
+            x: Math.cos(angle * Math.PI / 180) * distance,
+            y: Math.sin(angle * Math.PI / 180) * distance,
+            scale: 0.8,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: index * 0.1
+          })
+        }
+      })
+      break
+      
+    case 'crane':
+      // 纸鹤折法 - 复杂的折叠序列
+      papers.forEach((paper, index) => {
+        const sequence = gsap.timeline()
+        
+        // 第一阶段：基础折叠
+        sequence.to(paper, {
+          rotationX: index % 2 === 0 ? 90 : -90,
+          duration: 0.5,
+          ease: "power2.inOut"
+        })
+        // 第二阶段：展开翅膀
+        .to(paper, {
+          rotationY: index < 4 ? -45 : 45,
+          rotationZ: index * 15,
+          x: (index - 4) * 15,
+          y: index % 2 === 0 ? -10 : 10,
+          duration: 1,
+          ease: "power2.out"
+        })
+        // 第三阶段：最终形态
+        .to(paper, {
+          rotationX: 0,
+          rotationY: index < 4 ? -60 : 60,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "elastic.out(1, 0.5)"
+        })
+      })
+      break
+      
+    case 'box':
+      // 盒子折法 - 围成立体盒子
+      papers.forEach((paper, index) => {
+        const row = Math.floor(index / 3)
+        const col = index % 3
+        let targetRotation = { x: 0, y: 0, z: 0 }
+        let targetPosition = { x: 0, y: 0, z: 0 }
+        
+        if (row === 0) { // 顶行
+          if (col === 1) { // 顶面
+            targetRotation = { x: -90, y: 0, z: 0 }
+            targetPosition = { x: 0, y: -20, z: 10 }
+          } else { // 侧面
+            targetRotation = { x: 0, y: col === 0 ? 90 : -90, z: 0 }
+            targetPosition = { x: col === 0 ? -20 : 20, y: 0, z: 0 }
+          }
+        } else if (row === 1) { // 中间行
+          if (col === 1) { // 中心（底面）
+            targetRotation = { x: 0, y: 0, z: 0 }
+            targetPosition = { x: 0, y: 0, z: 0 }
+          } else { // 侧面
+            targetRotation = { x: 0, y: col === 0 ? 90 : -90, z: 0 }
+            targetPosition = { x: col === 0 ? -20 : 20, y: 0, z: 0 }
+          }
+        } else { // 底行
+          if (col === 1) { // 前面
+            targetRotation = { x: 90, y: 0, z: 0 }
+            targetPosition = { x: 0, y: 20, z: 10 }
+          } else { // 侧面
+            targetRotation = { x: 0, y: col === 0 ? 90 : -90, z: 0 }
+            targetPosition = { x: col === 0 ? -20 : 20, y: 0, z: 0 }
+          }
+        }
+        
+        gsap.to(paper, {
+          rotationX: targetRotation.x,
+          rotationY: targetRotation.y,
+          rotationZ: targetRotation.z,
+          x: targetPosition.x,
+          y: targetPosition.y,
+          z: targetPosition.z,
+          duration: 2,
+          ease: "power2.inOut",
+          delay: index * 0.1
+        })
+      })
+      break
+  }
+}
+
+function unfoldOrigami() {
+  const papers = origamiPaperRefs.value.filter(Boolean)
+  
+  papers.forEach((paper, index) => {
+    gsap.to(paper, {
+      rotationX: 0,
+      rotationY: 0,
+      rotationZ: 0,
+      scale: 1,
+      x: 0,
+      y: 0,
+      z: 0,
+      duration: 1.5,
+      ease: "elastic.out(1, 0.5)",
+      delay: (papers.length - index) * 0.1
+    })
+  })
+}
 </script>
 
 <style scoped>
@@ -987,5 +1557,34 @@ function geometricTransform(transformType: string) {
 
 .transform-container {
   background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
+.liquid-container svg {
+  filter: contrast(20);
+}
+
+.kaleidoscope-container {
+  animation: kaleidoSpin 20s linear infinite;
+}
+
+@keyframes kaleidoSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.origami-container {
+  transform-style: preserve-3d;
+}
+
+.origami-container > div {
+  transition: transform 0.3s ease;
+}
+
+.origami-container > div:hover {
+  transform: translateZ(10px) scale(1.05);
 }
 </style>
