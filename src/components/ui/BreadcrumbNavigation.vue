@@ -59,6 +59,12 @@ interface BreadcrumbItem {
 
 // 页面配置映射
 const pageConfigs: Record<string, BreadcrumbItem> = {
+  '/ai-animations': {
+    name: 'AI 动画实验室',
+    path: '/ai-animations',
+    icon: '🧠',
+    category: 'advanced'
+  },
   '/text-animations': {
     name: '文字动画',
     path: '/text-animations',

@@ -394,6 +394,14 @@ const technologies = [
 // Data
 const animationCards = [
   {
+    title: 'AI 动画实验室',
+    description: '切换 AI 能量球的待机、聆听、思考和回答状态，探索神经网络信号逐层传播的交互动画',
+    route: '/ai-animations',
+    icon: '🧠',
+    gradient: 'linear-gradient(135deg, #123341 0%, #287f78 100%)',
+    features: ['AI 能量球', '状态切换', '神经网络', '信号传播', '播放控制', '速度调节']
+  },
+  {
     title: '文字动画',
     description: '数字雨效果、音波可视化文字、分形文字、打字机效果、毛笔字动画、霓虹字体等创意文字动画',
     route: '/text-animations',

@@ -3,6 +3,12 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
+    path: '/ai-animations',
+    name: 'AIAnimations',
+    component: () => import('@/views/AIAnimationsView.vue'),
+    meta: { title: 'AI 动画实验室' }
+  },
+  {
     path: '/',
     name: 'Home',
     component: () => import('@/views/HomeView.vue'),

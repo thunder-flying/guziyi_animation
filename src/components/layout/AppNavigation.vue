@@ -256,6 +256,12 @@ const basicAnimations = [
 
 // 高级动画分类
 const advancedAnimations = [
+  {
+    name: 'AI 实验室',
+    path: '/ai-animations',
+    icon: '🧠',
+    shortDesc: '思考能量球、神经网络'
+  },
   { 
     name: '3D效果', 
     path: '/3d-effects', 
