@@ -5,7 +5,7 @@
         <div class="eyebrow"><span></span> ANIMATION / INTELLIGENCE</div>
         <h1>让智能，<span>有迹可循。</span></h1>
         <p>从一次呼吸，到一次信号传递。探索 AI 的交互状态与信息流动。</p>
-        <div class="header-meta"><span>AI 动画实验室</span><span>02 个交互实验</span><span>无需 API 密钥</span></div>
+        <div class="header-meta"><span>AI 动画实验室</span><span>03 个交互实验</span><span>无需 API 密钥</span></div>
       </header>
 
       <section class="experiment orb-section" aria-labelledby="orb-title">
@@ -55,7 +55,8 @@
         </div>
         <p class="explanation">这里展示的是信号逐层传播的视觉概念。真实神经网络会进行权重计算和非线性变换，连线亮起不代表模型的思考过程。</p>
       </section>
-      <footer class="lab-footer"><span>把抽象变成可感知的体验。</span><span v-if="reduced">已遵循系统的减少动态效果设置，传播结果直接呈现。</span><span v-else>切换页面或隐藏窗口时，动画自动停止。</span></footer>
+      <AIGenerationAnimation :reduced="reduced" />
+      <footer class="lab-footer"><span>把抽象变成可感知的体验。</span><span v-if="reduced">已遵循系统的减少动态效果设置，结果直接呈现。</span><span v-else>切换页面或隐藏窗口时，动画自动停止。</span></footer>
     </div>
   </main>
 </template>
@@ -63,6 +64,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import AIEnergyOrb from '@/components/animations/AIEnergyOrb.vue'
+import AIGenerationAnimation from '@/components/animations/AIGenerationAnimation.vue'
 
 type State = 'idle' | 'listening' | 'thinking' | 'speaking'
 const states: { id: State; label: string; symbol: string; color: string; description: string }[] = [
